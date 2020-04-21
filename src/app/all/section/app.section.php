@@ -10,6 +10,9 @@
 <?php
 require 'app.section.html';
 ?>
+<div id="cookie-identification"></div>
+
+
 <link rel="stylesheet" href="src/app/all/section/app.section.css">
 <script src="src/app/all/section/app.section.js"></script>   
 

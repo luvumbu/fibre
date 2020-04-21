@@ -12,6 +12,9 @@
 <i class="fa fa-instagram"></i>
 <i class="fa fa-linkedin"></i>
 𝕨𝕨𝕨.𝔹𝕠𝕜𝕠𝕟𝕫𝕚.𝕔𝕠𝕞  𝖞𝖉𝖊𝖓𝖌𝖆 𝕿𝖚𝖛𝖚𝖒𝖇𝖚   ★☆♨♫✈❤  -->
+<div id="loading" class="none">
+    <img src="http://localhost/fibre/src/app/all/img/YCZH.gif" alt="">
+</div>
     <section id="section0"></section>
     <script>  
       var section0 = document.getElementsByTagName("section") ; 
@@ -100,6 +103,7 @@ section_4_final.set_attribute("class",section_child_class4) ;
 section_3_final.set_attribute("onkeyup","input_value()") ; 
 section_4_final.set_attribute("onkeyup","input_value()") ; 
 section_5_final.set_attribute("class","section_child_class5_hidden") ; 
+section_5_final.set_attribute("onclick","envoyer(this)") ;
 section_5_final.set_text("Envoyer") ; 
 
     </script>
@@ -117,6 +121,17 @@ section_5_final.set_text("Envoyer") ;
       
         display: block;
         
+    }
+    .none 
+    {
+        display: none ;
+    }
+    .loading 
+    {
+    
+        width : 500px; 
+        margin : auto ; 
+        text-align: center;
     }
     .section_child_class3 ,.section_child_class4
     {
@@ -168,18 +183,195 @@ section_5_final.set_text("Envoyer") ;
 </style>
 
 <script>
+    
+    var hidden = "section_child_class5_hidden" ;
+    var visible = "section_child_class5" ; 
+    var envoyer_info = "" ;
+    var send_wait =0 ; 
+  
     function input_value()
     {
         var input1=    document.getElementById("section_child_id3").value ; 
-        var input2=    document.getElementById("section_child_id4").value ; 
-            if(input1=="" || input2=="")
+        var input2=    document.getElementById("section_child_id4").value ;
+      var valeursends = document.getElementById('section_child_id4').className ; 
+       
+      if(valeursends!="none_value")
+      {
+        if(input1=="" || input2=="")
             {
-                        document.getElementById("section_child_id5").className="section_child_class5_hidden" ; 
+                        document.getElementById("section_child_id5").className=hidden ;
+                        section_5_final.set_attribute("class",hidden) ;  
             }
             else 
             {
-                document.getElementById("section_child_id5").className="section_child_class5" ; 
+                document.getElementById("section_child_id5").className=visible ; 
+                section_5_final.set_attribute("class",visible) ; 
+            } 
+      }
+      else 
+      {
+        if(input1=="")
+            {
+            
+                        document.getElementById("section_child_id5").className=hidden ;
+                        section_5_final.set_attribute("class",hidden) ;  
             }
- 
+            else 
+            {
+                document.getElementById("section_child_id5").className=visible ; 
+                section_5_final.set_attribute("class",visible) ; 
+            } 
+      }
+
+    }
+function envoyer(this_)
+{
+   
+                if(this_.className==visible)
+                {
+                var input1 =  document.getElementById("section_child_id3").value  ; 
+                var input2 =  document.getElementById("section_child_id4").value ;    
+                var identite = new FormData();
+                identite.append("mail", input1);
+                        if(this_.className+envoyer_info!=this_.className+"connexion")
+                        {
+                            identite.append("infos","connexion");
+                        }
+                        else 
+                        {
+                            identite.append("infos","inscription");
+                        }
+if(send_wait==0)
+{
+
+
+                if(document.getElementById("section_child_id4").className=="none_value")
+                {
+                                        // Création et configuration d'une requête HTTP POST vers le fichier post_form.php
+                // var req = new XMLHttpRequest();
+                // req.open("POST", "src/app/all/function/app.cookie.php");
+                // // Envoi de la requête en y incluant l'objet
+                // req.send(identite);
+                // console.log(req);
+
+                identite.append("infos", "inscription");
+                var req = new XMLHttpRequest();
+                req.open("POST", "src/app/all/function/app.cookie.php");
+                // Envoi de la requête en y incluant l'objet
+                req.send(identite);
+                console.log(req);
+                send_wait = 1 ; 
+              document.getElementById("loading").className="loading";
+                section_5_final.set_attribute("class",hidden) ; 
+                document.getElementById("section0").className="none";
+                setTimeout(function(){ 
+                    section_5_final.set_attribute("class",visible) ; 
+                    send_wait = 0 ;
+                    document.getElementById("loading").className="none";
+                    document.getElementById("section0").className=""; 
+                    
+                }, 5000);
+                // si action sut le boutton inscription !! 
+                }
+                else 
+                {
+                identite.append("infos", "connexion");
+                var req = new XMLHttpRequest();
+                req.open("POST", "src/app/all/function/app.cookie.php");
+                // Envoi de la requête en y incluant l'objet
+                req.send(identite);
+                console.log(req);
+
+                send_wait = 1;
+                section_5_final.set_attribute("class",hidden) ; 
+
+                section_5_final.set_attribute("class",hidden) ; 
+                document.getElementById("loading").className="loading";
+                document.getElementById("section0").className="none";
+                setTimeout(function(){ 
+                    section_5_final.set_attribute("class",visible) ; 
+                    document.getElementById("loading").className="none";
+                    document.getElementById("section0").className=""; 
+                    send_wait = 0 ; 
+                }, 5000);
+                // si action sut le boutton inscription !! 
+                }
+            }
+                }
+     
+
+}
+function div_connexion() 
+    {      
+        document.getElementById("section_child_id1").className="section_child_class1" ; 
+        document.getElementById("section_child_id3").placeholder="Mail de connexion" ; // attention 
+        document.getElementById("section_child_id4").placeholder="Confirmation d'adresse mail connexion" ;  
+        section_4_final.set_attribute("class","none_value") ; 
+        envoyer_info  = "connexion" ;
+    }
+    function div_inscription() 
+    {        
+        document.getElementById("section_child_id1").className="section_child_class1" ;
+        
+        section_4_final.set_attribute("class",section_child_class4) ;     
     }
 </script>
+<!-- <input type="text" placeholder="ND:" class="input margin-bottom-10px">
+<div id="all-nd">   
+</div>
+<select id="nd" class="input" >
+  <option value="-----" >-----</option>
+  <option value="AERIEN" id="AERIEN" >AERIEN</option>
+  <option value="FACADE" id="FACADE">FACADE</option>
+  <option value="SOUT" id="SOUT">SOUT</option>
+  <option value="IMM"  id="IMM">IMM</option>
+  <option value="PLP" id="PLP">PLP</option>
+  <option value="PMS/ESC/DEP" id="PMS/ESC/DEP">PMS/ESC/DEP</option>
+</select>
+<div><i class="fa fa-remove"></i></div> -->
+<!-- </div><i class="fa fa-plus-circle" onclick="addnd()"></i> -->
+<style>
+    .input
+    {
+        width:100% ; 
+        padding: 15px;
+    }
+    .margin-bottom-10px
+    {
+        margin-bottom:10px;
+    }
+    .none_value
+    {
+        display: none;
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+
+<script>
+var nd_n = 1 ; 
+// function addnd() 
+// {
+//     var nd  = document.getElementById("nd");
+//     nd.value ; 
+//     document.getElementById(nd.value).style.display="none" ; 
+
+    
+//     if(nd.value=="")
+//     {
+//             alert("-----");
+//     }
+//     else 
+//     {
+ 
+//         nd_1 = new IdentificationHtml("div",nd.value+nd,"all-nd");
+//         nd_1.set_text(nd_n+"-"+nd.value);
+//         nd_n ++;
+//     }
+// }
+
+</script>   

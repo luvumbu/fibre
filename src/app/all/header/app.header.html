@@ -100,9 +100,9 @@
     header_4_final.set_attribute("class",header_child_class4);
     header_3_final.set_attribute("class",header_child_class3) ; 
     header_5_final.set_attribute("class",header_child_class5) ; 
-    header_5_final.set_attribute("onclick","div_connexion()") ; 
+    header_5_final.set_attribute("onclick","div_inscription()") ; 
     header_6_final.set_attribute("class",header_child_class6) ; 
-    header_6_final.set_attribute("onclick","div_inscription()") ; 
+    header_6_final.set_attribute("onclick","div_connexion()") ; 
     header_5_final.set_text("Inscription") ; 
     header_6_final.set_text("Connexion") ; 
     
@@ -156,21 +156,3 @@
     }
 </style>
 
-<script>
-    function div_connexion() 
-    {      
-        document.getElementById("section_child_id1").className="section_child_class1" ; 
-        document.getElementById("section_child_id3").placeholder="Mail de Connexion" ; 
-        document.getElementById("section_child_id4").placeholder="Confirmation d'adresse mail " ; 
-        
-
-    }
-    function div_inscription() 
-    {
-        document.getElementById("section_child_id1").className="section_child_class1" ; 
-
-        document.getElementById("section_child_id3").placeholder="Mail d'inscription" ; 
-        document.getElementById("section_child_id4").placeholder="Confirmation d'adresse mail d'inscription " ; 
-    }
-
-</script>
