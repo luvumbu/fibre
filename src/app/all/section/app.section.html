@@ -13,7 +13,7 @@
 <i class="fa fa-linkedin"></i>
 𝕨𝕨𝕨.𝔹𝕠𝕜𝕠𝕟𝕫𝕚.𝕔𝕠𝕞  𝖞𝖉𝖊𝖓𝖌𝖆 𝕿𝖚𝖛𝖚𝖒𝖇𝖚   ★☆♨♫✈❤  -->
 <div id="loading" class="none">
-    <img src="http://localhost/fibre/src/app/all/img/YCZH.gif" alt="">
+    <img src="src/app/all/img/YCZH.gif" alt="">
 </div>
     <section id="section0"></section>
     <script>  
@@ -129,7 +129,7 @@ section_5_final.set_text("Envoyer") ;
     .loading 
     {
     
-        width : 500px; 
+        width :100%; 
         margin : auto ; 
         text-align: center;
     }
@@ -233,9 +233,12 @@ function envoyer(this_)
                 var input2 =  document.getElementById("section_child_id4").value ;    
                 var identite = new FormData();
                 identite.append("mail", input1);
+                identite.append("password",input2);
                         if(this_.className+envoyer_info!=this_.className+"connexion")
                         {
                             identite.append("infos","connexion");
+                          
+                            
                         }
                         else 
                         {
@@ -253,6 +256,7 @@ if(send_wait==0)
                 // // Envoi de la requête en y incluant l'objet
                 // req.send(identite);
                 // console.log(req);
+                
 
                 identite.append("infos", "inscription");
                 var req = new XMLHttpRequest();
@@ -269,12 +273,14 @@ if(send_wait==0)
                     send_wait = 0 ;
                     document.getElementById("loading").className="none";
                     document.getElementById("section0").className=""; 
+                    document.location.reload(true);
                     
                 }, 5000);
                 // si action sut le boutton inscription !! 
                 }
                 else 
                 {
+                identite.append("infos", "connexion");
                 identite.append("infos", "connexion");
                 var req = new XMLHttpRequest();
                 req.open("POST", "src/app/all/function/app.cookie.php");
@@ -293,6 +299,7 @@ if(send_wait==0)
                     document.getElementById("loading").className="none";
                     document.getElementById("section0").className=""; 
                     send_wait = 0 ; 
+                    document.location.reload(true);
                 }, 5000);
                 // si action sut le boutton inscription !! 
                 }
@@ -306,14 +313,15 @@ function div_connexion()
         document.getElementById("section_child_id1").className="section_child_class1" ; 
         document.getElementById("section_child_id3").placeholder="Mail de connexion" ; // attention 
         document.getElementById("section_child_id4").placeholder="Confirmation d'adresse mail connexion" ;  
-        section_4_final.set_attribute("class","none_value") ; 
+        section_4_final.set_attribute("class",section_child_class4) ;  
         envoyer_info  = "connexion" ;
     }
     function div_inscription() 
     {        
+        document.getElementById("section_child_id3").placeholder="Mail d'Inscription" ; // attention 
         document.getElementById("section_child_id1").className="section_child_class1" ;
-        
-        section_4_final.set_attribute("class",section_child_class4) ;     
+        section_4_final.set_attribute("class","none_value") ; 
+           
     }
 </script>
 <!-- <input type="text" placeholder="ND:" class="input margin-bottom-10px">

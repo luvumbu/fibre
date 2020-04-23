@@ -11,8 +11,23 @@
 require 'app.section.html';
 ?>
 <div id="cookie-identification"></div>
-
-
 <link rel="stylesheet" href="src/app/all/section/app.section.css">
-<script src="src/app/all/section/app.section.js"></script>   
+<script src="src/app/all/section/app.section.js"></script>  
 
+
+<?php 
+if(isset($_SESSION["info_http"]))
+{
+    echo '<div id="info_http">'.$_SESSION["info_http"].'</div>' ; 
+
+    ?>
+
+<script>
+  document.getElementById("info_http").style.display="block";
+setTimeout(function(){ 
+   document.getElementById("info_http").style.display="none";
+    }, 3000);
+</script>
+<?php 
+}
+?>

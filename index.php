@@ -10,6 +10,8 @@
 <?php 
    session_start() ; 
    $name_bdd = "app.bdd.php"; // création de la variable à verifier pour le bon fonctionnement de la page 
+   
+
    // variable  1 
 ?>
 
