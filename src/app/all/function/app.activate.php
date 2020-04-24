@@ -5,11 +5,16 @@ include("app.bdd.php");
 $infos = $_POST["infos"] ;
 $monUrl = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $monUrls = $_SERVER['HTTP_HOST']."/src/app/all/function/app.newpassword.php" ;
- 
+$one_monUrls =$_SERVER['HTTP_HOST'] ;
 ?>
-<div id="monulr">
+<div id="monulr" style="opacity: 0">
 <?php echo  $monUrls ?>
 </div>
+
+<div id="one_monUrls" style="opacity: 0">
+<?php echo  $one_monUrls ?>
+</div>
+
 
 <?php 
 echo "<br/>" ; 
@@ -50,6 +55,13 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 ?>
 
+
+<div id="monmail" style="opacity: 0">
+<?php 
+echo $mail2 ; 
+?>
+</div>
+ 
 <style>
 #validation 
 {
@@ -130,24 +142,26 @@ var myurl =  document.getElementById("monulr").innerText ;
           {
            
               if(passwors_1.length>6)
-              {
- 
-               var myurlUp="https://"+document.getElementById("monulr").innerHTML ;
+              {              
+               var myurlUp="https://"+document.getElementById("monulr").innerHTML;
+               var monmail = document.getElementById("monmail").innerText  ;
+
+               var one_monUrls = document.getElementById("one_monUrls").innerText  ;
+              //var  one_monUrls = "https://"+document.getElementById("monulr").innerHTML;
                  // Toutes les conditions sont respectées 
                     var identite = new FormData();
                     // Ajout d'information dans l'objet
-                    identite.append("login", "root");
-                    identite.append("password", "root");
+                    identite.append("passwors_1", passwors_1);
+                    identite.append("mail", monmail);
                     // Création et configuration d'une requête HTTP POST vers le fichier post_form.php
                     var req = new XMLHttpRequest();
                     req.open("POST", myurlUp);
                     // Envoi de la requête en y incluant l'objet
                     req.send(identite);
                     console.log(req);
-             
-
-
-
+                    setTimeout(function(){  
+                            document.location.href="https://"+one_monUrls;                     
+                         }, 1000);
               }
               else 
               {

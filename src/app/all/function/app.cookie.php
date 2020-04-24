@@ -2,18 +2,16 @@
 session_start() ;
 header("Access-Control-Allow-Origin: *"); 
 include("app.bdd.php");
- 
 $infos = $_POST["infos"] ;
 $mail = $_POST["mail"] ; 
 $my_password = $_POST["password"] ; 
-
 // $servername ="localhost";
 // $username="u481158665_bokonzi"; 
 // $password="v3p9r3e@59A"; 
 // $dbname="u481158665_bokonzi"; 
 if($infos=="connexion")
 {
-    echo "Connexion" ;
+echo "Connexion" ;
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -52,24 +50,18 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-
         echo "utilisateur connu dans la base de donne" ;
         $_SESSION["info_http"] = "Utilisateur connu dans la base de donne" ;
         $_SESSION["info_status"] = "0" ;
         $_SESSION["info_mail"] = $mail ;
         /// debut du code 
-
-
-
 $connx = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($connx->connect_error) {
     die("Connection failed: " . $connx->connect_error);
 }
-
 $sqlx = 'SELECT * FROM `users` WHERE `users_email`="'.$mail.'" AND `users_verif`="0"';
 $resultx = $connx->query($sqlx);
-
 if ($resultx->num_rows > 0) {
     // output data of each row
     while($row = $resultx->fetch_assoc()) {
@@ -79,46 +71,7 @@ if ($resultx->num_rows > 0) {
     echo "0 results";
 }
 $connx->close();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /// fin du code
+     /// fin du code
 
     }
 } else {
@@ -164,35 +117,10 @@ $connx->close();
                                 echo "New record created successfully";
                             } else {
                                 echo "Error: " . $sql . "<br>" . $conn->error;
-                            }
-    
+                            }    
                             $conn->close();
 }
 $conn->close();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
- 
-
-
 // Create connection
-
 ?>

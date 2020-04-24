@@ -10,23 +10,16 @@
 <?php 
    session_start() ; 
    $name_bdd = "app.bdd.php"; // création de la variable à verifier pour le bon fonctionnement de la page 
-   // variable  1 
+   // variable  1   
 ?>
+</script>   
 
-<div id="name_bdd" class="<?php  echo $name_bdd; ?>">
-<link rel="stylesheet" href="src/app/all/function/css/police.css">
-<link rel="stylesheet" href="src/app/all/function/css/margin.css">
-<link rel="stylesheet" href="src/app/all/function/css/padding.css">
-<link rel="stylesheet" href="src/app/all/function/css/police.css">
-<link rel="stylesheet" href="src/app/all/function/css/forms.css">
-<link rel="stylesheet" href="src/app/all/function/css/general.css">
-<!-- prend la valeur de la variable du div pour le re utiliser dans les fichier check.bdd.php" -->
-</div>
 <script
    src="https://code.jquery.com/jquery-3.4.1.min.js"
    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
    crossorigin="anonymous">
 </script>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
 <!DOCTYPE html>
    <html lang="fr">
@@ -47,17 +40,8 @@
                   if(  $file_existe ==true)
                      {
                         require "src/app/all/function/".$name_bdd;  // demande ajouter les elements dans l'emplacement du fichier $name_bdd
-                       // Si la basse de donne existe executer ce code    
-                       if(isset($_SESSION["users_email"]))
-                       {                                              
-                        header('Location: src/login/index.php');
-                  
-                          exit();                      
-                       }   
-                       else 
-                       {
                         require "src/app/all/app.php"; // demande d'aouter les valeur ce cet emplacement
-                       }                          
+                       // Si la basse de donne existe executer ce code                                 
                      }
                        else 
                           {
