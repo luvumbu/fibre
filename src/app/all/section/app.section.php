@@ -18,15 +18,16 @@ require 'app.section.html';
 <?php 
 if(isset($_SESSION["info_http"]))
 {
-    echo '<div id="info_http">'.$_SESSION["info_http"].'</div>' ; 
+    echo '<div id="info_http">'.$_SESSION["info_http"].'</div>' ;
+    echo "<br/> CLiquez ici pour d'esactiver". $_SESSION["info_mail"] ;  
 
     ?>
 
 <script>
-  document.getElementById("info_http").style.display="block";
-setTimeout(function(){ 
-   document.getElementById("info_http").style.display="none";
-    }, 3000);
+//   document.getElementById("info_http").style.display="block";
+// setTimeout(function(){ 
+//    document.getElementById("info_http").style.display="none";
+//     }, 3000);
 </script>
 <?php 
 }

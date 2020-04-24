@@ -39,22 +39,6 @@ $conn->close();
 }
 else 
 {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -71,12 +55,78 @@ if ($result->num_rows > 0) {
 
         echo "utilisateur connu dans la base de donne" ;
         $_SESSION["info_http"] = "Utilisateur connu dans la base de donne" ;
+        $_SESSION["info_status"] = "0" ;
+        $_SESSION["info_mail"] = $mail ;
+        /// debut du code 
+
+
+
+$connx = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($connx->connect_error) {
+    die("Connection failed: " . $connx->connect_error);
+}
+
+$sqlx = 'SELECT * FROM `users` WHERE `users_email`="'.$mail.'" AND `users_verif`="0"';
+$resultx = $connx->query($sqlx);
+
+if ($resultx->num_rows > 0) {
+    // output data of each row
+    while($row = $resultx->fetch_assoc()) {
+        echo "Valeur pas verif" ; 
+    }
+} else {
+    echo "0 results";
+}
+$connx->close();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /// fin du code
+
     }
 } else {
     echo "Inscription reussi" ;
     $_SESSION["info_http"] = "Inscription reussi" ;
      
     $monUrl = $_SERVER['HTTP_HOST'];
+    $_SESSION["info_status"] = "1" ;
     
          // Plusieurs destinataires
          $to  = $mail; // notez la virgule
@@ -85,7 +135,7 @@ if ($result->num_rows > 0) {
          $subject = 'Activation compte Bokonzi';
      
          // message
-         $lien = "http://bokonzi.com/projets/fibre/src/app/all/function/app.activate.php/=".$mail;
+         $lien = $monUrl."/src/app/all/function/app.activate.php/=".$mail;
          $message = '<a href="'.$lien.'">Cliquez ici pour activer</a>';
     
          // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
