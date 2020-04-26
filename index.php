@@ -11,6 +11,8 @@
    session_start() ; 
    $name_bdd = "app.bdd.php"; // création de la variable à verifier pour le bon fonctionnement de la page 
    // variable  1 
+
+
 ?>
 
 <div id="name_bdd" class="<?php  echo $name_bdd; ?>">
@@ -50,10 +52,10 @@
                        // Si la basse de donne existe executer ce code    
                        if(isset($_SESSION["users_email"]))
                        {                                              
-                        header('Location: src/login/index.php');
-                  
+                          header('Location: src/login/index.php');                  
                           exit();                      
-                       }   
+                       } 
+                      
                        else 
                        {
                         require "src/app/all/app.php"; // demande d'aouter les valeur ce cet emplacement

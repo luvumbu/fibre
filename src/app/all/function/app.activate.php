@@ -160,7 +160,7 @@ var myurl =  document.getElementById("monulr").innerText ;
                     req.send(identite);
                     console.log(req);
                     setTimeout(function(){  
-                            document.location.href="https://"+one_monUrls;                     
+                    document.location.href="https://"+one_monUrls+"/src/login/index.php";                     
                          }, 1000);
               }
               else 

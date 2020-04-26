@@ -13,8 +13,6 @@
 <i class="fa fa-instagram"></i>
 <i class="fa fa-linkedin"></i>
 𝕨𝕨𝕨.𝔹𝕠𝕜𝕠𝕟𝕫𝕚.𝕔𝕠𝕞  𝖞𝖉𝖊𝖓𝖌𝖆 𝕿𝖚𝖛𝖚𝖒𝖇𝖚   ★☆♨♫✈❤  -->
-
-
     <header id="header0"></header>
     <script>  
       var header0 = document.getElementsByTagName("header") ; 
@@ -22,14 +20,29 @@
       var header_parent =header0;    
       var header0_parent_id = new getInfo(header0) ;
    
-    header_child_text1="";
-    header_child_text2="";
-    header_child_text3="";
-    header_child_text4="";
-    header_child_text5=""; 
-   
-    header_child_text6="";
-    header_child_text7="";
+    header_child_text1="AERIEN";
+    header_child_text2="SOUT / FACADE";
+    header_child_text3="SAV";
+    header_child_text4="PLP";
+    header_child_text5="APPART";
+    header_child_text6="PVRHN";
+    header_child_text7="HOML1";
+
+
+    var monTableau = [
+ ["", ""],
+ [false, ""],
+ [false, ""],
+ [false, ""],
+ [false, ""],
+ [false, ""],
+ [false, ""],
+ [false, ""], 
+];
+
+
+ 
+
     header_child_text8="";
     header_child_text9="";
     header_child_text10="";
@@ -87,5 +100,180 @@
 //header_1_final.set_text("Montext") ; 
        /*
  
-    */  </script>
+    */ 
+    
+    
+     </script>
+    
+  <div class="send">
+    <input type="number" placeholder="ND : " class="valider" maxlength="10">   
+    <div id="liste" style="text-align: center;">
+    </div> 
+    <select name="pets" id="intervention" onchange="myFunction(this)" class="valider">
+        <option value="" id="----">-- --</option>
+        <option value="" id="header_child_id1"></option>
+        <option value="" id="header_child_id2"></option>
+        <option value="" id="header_child_id3"></option>
+        <option value="" id="header_child_id4"></option>
+        <option value="" id="header_child_id5"></option>
+        <option value="" id="header_child_id6"></option>
+        <option value="" id="header_child_id7"></option>
+    </select>
 
+    <div class="oon" onclick="send_bb()">
+        Valider
+    </div>
+  </div>
+
+<!-- <i class="fa fa-plus-circle"></i> -->
+
+<style>
+    .oon 
+    {
+        padding: 15px; 
+      
+       border:1px solid #cae2f7 ; 
+       width: 60%;
+       margin: auto;
+       margin-top : 15px ;
+    }
+    .send
+    {
+        
+     
+        text-align: center;
+        margin : auto ; 
+    }
+    .valider 
+    {
+        width: 80%;
+        padding: 15px;
+        margin : auto ; 
+    }
+</style>
+<script>
+document.getElementById(header_child_id1).innerHTML=header_child_text1 ; 
+document.getElementById(header_child_id2).innerHTML=header_child_text2 ; 
+document.getElementById(header_child_id3).innerHTML=header_child_text3 ; 
+document.getElementById(header_child_id4).innerHTML=header_child_text4 ; 
+document.getElementById(header_child_id5).innerHTML=header_child_text5 ; 
+document.getElementById(header_child_id6).innerHTML=header_child_text6 ; 
+document.getElementById(header_child_id7).innerHTML=header_child_text7 ; 
+
+
+
+
+
+
+document.getElementById(header_child_id1).value=header_child_id1 ; 
+document.getElementById(header_child_id2).value=header_child_id2 ; 
+document.getElementById(header_child_id3).value=header_child_id3 ; 
+document.getElementById(header_child_id4).value=header_child_id4 ; 
+document.getElementById(header_child_id5).value=header_child_id5 ; 
+document.getElementById(header_child_id6).value=header_child_id6 ; 
+document.getElementById(header_child_id7).value=header_child_id7 ; 
+
+
+document.getElementById(header_child_id1).className=header_child_text1 ;
+document.getElementById(header_child_id2).className=header_child_text2 ; 
+document.getElementById(header_child_id3).className=header_child_text3 ; 
+document.getElementById(header_child_id4).className=header_child_text4 ; 
+document.getElementById(header_child_id5).className=header_child_text5 ; 
+document.getElementById(header_child_id6).className=header_child_text6 ; 
+document.getElementById(header_child_id7).className=header_child_text7 ; 
+
+
+
+
+
+function myFunction(this_) {
+
+
+var myval = this_.value;
+var mavaleur = this_.value[myval.length-1] ; 
+
+
+    document.getElementById(this_.value).style.display="none"; 
+    header_1_final = new IdentificationHtml("div",this_.value+'_'+mavaleur,"liste");   
+    var elo  =document.getElementById(this_.value).className ;
+
+
+
+ 
+    var lol = "<div id='"+mavaleur+"' class=''>"+elo+"  <i class='fa fa-remove'id='"+mavaleur+"' onclick='removeId(this)' class='"+elo+"'></i></div> "
+    header_1_final.set_text(lol) ;
+
+
+
+    
+    monTableau[mavaleur][0] =true ;
+  
+   
+ 
+
+     
+}
+ 
+function removeId(this_)
+{
+    monTableau[this_.id][0] =false ;
+    document.getElementById(this_.id).style.display="none" ; 
+ 
+    document.getElementById("header_child_id"+this_.id).style.display="block"; 
+}
+
+function send_bb() 
+{
+   
+ 
+
+    if(monTableau[1][0]==true)
+    {
+        //alert(header_child_text1 );
+    }
+    if(monTableau[2][0]==true)
+    {
+        //alert(header_child_text2 );
+    }
+    if(monTableau[3][0]==true)
+    {
+        //alert(header_child_text3 );
+    }
+    if(monTableau[4][0]==true)
+    {
+        //alert(header_child_text4 );
+    }
+    if(monTableau[5][0]==true)
+    {
+        //alert(header_child_text5 );
+    }
+    if(monTableau[6][0]==true)
+    {
+       // alert(header_child_text6 );
+    }
+    if(monTableau[7][0]==true)
+    {
+       // alert(header_child_text7 );
+    }
+ 
+    
+}
+
+
+ 
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.padding-10px
+{
+    margin-left: 100px; 
+}
+.fa
+{
+    margin-bottom : 25px ; 
+    padding: 20px;
+    font-size: 2em;
+}
+</style>
