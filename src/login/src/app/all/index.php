@@ -11,6 +11,9 @@
    session_start() ; 
    $name_bdd = "app.bdd.php"; // création de la variable à verifier pour le bon fonctionnement de la page 
    // variable  1   
+//   include("app.bdd.php");
+
+ 
 ?>
 </script>   
 
@@ -39,6 +42,8 @@
                 }                                      
                   if(  $file_existe ==true)
                      {
+
+                       
                         require "src/app/all/function/".$name_bdd;  // demande ajouter les elements dans l'emplacement du fichier $name_bdd
                         require "src/app/all/app.php"; // demande d'aouter les valeur ce cet emplacement
                        // Si la basse de donne existe executer ce code                                 

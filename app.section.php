@@ -18,10 +18,12 @@ require 'app.section.html';
 
 <?php
  
-include('../app/all/function/app.bdd.php') ; 
-
+// $servername = "localhost";
+// $username = "u481158665_bokonzi";
+// $password = "v3p9r3e@59A";
+// $dbname = "u481158665_bokonzi";
  
-// Create connection
+ 
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
