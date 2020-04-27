@@ -13,6 +13,8 @@
 <i class="fa fa-instagram"></i>
 <i class="fa fa-linkedin"></i>
 𝕨𝕨𝕨.𝔹𝕠𝕜𝕠𝕟𝕫𝕚.𝕔𝕠𝕞  𝖞𝖉𝖊𝖓𝖌𝖆 𝕿𝖚𝖛𝖚𝖒𝖇𝖚   ★☆♨♫✈❤  -->
+<div id="erro1" class="errors"></div>
+<div id="erro2" class="errors"></div>
     <header id="header0"></header>
     <script>  
       var header0 = document.getElementsByTagName("header") ; 
@@ -106,7 +108,7 @@
      </script>
     
   <div class="send">
-    <input type="number" placeholder="ND : " class="valider" maxlength="10">   
+    <input type="number" placeholder="ND : " class="valider" maxlength="10" id="nd">   
     <div id="liste" style="text-align: center;">
     </div> 
     <select name="pets" id="intervention" onchange="myFunction(this)" class="valider">
@@ -120,7 +122,7 @@
         <option value="" id="header_child_id7"></option>
     </select>
 
-    <div class="oon" onclick="send_bb()">
+    <div class="oon" onclick="send_bb()" id="ons">
         Valider
     </div>
   </div>
@@ -224,39 +226,182 @@ function removeId(this_)
 
 function send_bb() 
 {
-   
- 
+   var total = 0 ; 
+   var erro1 = 0 ; 
+   var erro2 = 0 ; 
+
+   // Création d'un objet FormData
+ var matab =[] ;
 
     if(monTableau[1][0]==true)
     {
         //alert(header_child_text1 );
+
+
+    // header_child_text1="AERIEN";
+    // header_child_text2="SOUT / FACADE";
+    // header_child_text3="SAV";
+    // header_child_text4="PLP";
+    // header_child_text5="APPART";
+    // header_child_text6="PVRHN";
+    // header_child_text7="HOML1";
+        matab.push("AERIEN") ; 
+  
+        total ++ ; 
     }
     if(monTableau[2][0]==true)
     {
         //alert(header_child_text2 );
+
+            // header_child_text1="AERIEN";
+    // header_child_text2="SOUT / FACADE";
+    // header_child_text3="SAV";
+    // header_child_text4="PLP";
+    // header_child_text5="APPART";
+    // header_child_text6="PVRHN";
+    // header_child_text7="HOML1";
+    matab.push("SOUT / FACADE") ; 
+        total ++ ; 
     }
     if(monTableau[3][0]==true)
     {
-        //alert(header_child_text3 );
+      
+            // header_child_text1="AERIEN";
+    // header_child_text2="SOUT / FACADE";
+    // header_child_text3="SAV";
+    // header_child_text4="PLP";
+    // header_child_text5="APPART";
+    // header_child_text6="PVRHN";
+    // header_child_text7="HOML1";
+    matab.push("SAV") ; 
+        total ++ ; 
     }
     if(monTableau[4][0]==true)
     {
-        //alert(header_child_text4 );
+              // header_child_text1="AERIEN";
+    // header_child_text2="SOUT / FACADE";
+    // header_child_text3="SAV";
+    // header_child_text4="PLP";
+    // header_child_text5="APPART";
+    // header_child_text6="PVRHN";
+    // header_child_text7="HOML1";
+    matab.push("PLP") ; 
+        total ++ ; 
     }
     if(monTableau[5][0]==true)
     {
-        //alert(header_child_text5 );
+                     // header_child_text1="AERIEN";
+    // header_child_text2="SOUT / FACADE";
+    // header_child_text3="SAV";
+    // header_child_text4="PLP";
+    // header_child_text5="APPART";
+    // header_child_text6="PVRHN";
+    // header_child_text7="HOML1";
+    matab.push("APPART") ; 
+        total ++ ;
     }
     if(monTableau[6][0]==true)
     {
-       // alert(header_child_text6 );
+                          // header_child_text1="AERIEN";
+    // header_child_text2="SOUT / FACADE";
+    // header_child_text3="SAV";
+    // header_child_text4="PLP";
+    // header_child_text5="APPART";
+    // header_child_text6="PVRHN";
+    // header_child_text7="HOML1";
+    matab.push("PVRHN") ; 
+        total ++ ;
     }
     if(monTableau[7][0]==true)
     {
-       // alert(header_child_text7 );
+                                // header_child_text1="AERIEN";
+    // header_child_text2="SOUT / FACADE";
+    // header_child_text3="SAV";
+    // header_child_text4="PLP";
+    // header_child_text5="APPART";
+    // header_child_text6="PVRHN";
+    // header_child_text7="HOML1";
+    matab.push("HOML1") ; 
+        total ++ ;
     }
  
-    
+     
+    if(document.getElementById("nd").value=="")
+    {
+            
+            document.getElementById("erro1").innerHTML="Nd nom remplie" ; 
+            erro1 = 1 ; 
+         
+    } 
+    else 
+    {
+        document.getElementById("erro1").innerHTML="" ; 
+        erro1 = 0 ; 
+    }
+    if(total==0)
+    {
+        erro2 = 1 ; 
+        document.getElementById("erro2").innerHTML="Aucune valeur indiqué" ; 
+    } 
+    else 
+    {
+        document.getElementById("erro2").innerHTML="" ; 
+        erro2 = 0 ; 
+    }
+
+    if(erro1==0 && erro2==0)
+    {
+        document.getElementById("erro1").className="valide";
+        document.getElementById("erro1").innerHTML="Valeur ok" ; 
+        
+        var d = new Date();
+       document.getElementById("erro2").innerHTML = d;
+
+
+
+
+
+
+
+
+
+            // req.open("POST", "src/app/all/function/app.function.php");
+            // // Envoi de la requête en y incluant l'objet
+            // req.send(identite);
+            // console.log(req);
+
+
+
+
+            // Création d'un objet FormData
+var identite = new FormData();
+// Ajout d'information dans l'objet
+identite.append("login1", monTableau[1][0]);
+identite.append("login2", monTableau[2][0]);
+identite.append("login3", monTableau[3][0]);
+identite.append("login4", monTableau[4][0]);
+identite.append("login5", monTableau[5][0]);
+identite.append("login6", monTableau[6][0]);
+identite.append("login7", monTableau[7][0]);
+
+var ndfinal =document.getElementById("nd").value;
+ 
+
+identite.append("nd", ndfinal);
+ 
+
+
+ 
+ 
+// Création et configuration d'une requête HTTP POST vers le fichier post_form.php
+var req = new XMLHttpRequest();
+req.open("POST", "src/app/all/function/app.function.php");
+// Envoi de la requête en y incluant l'objet
+req.send(identite);
+console.log(req);
+            
+   
+    }
 }
 
 
@@ -275,5 +420,19 @@ function send_bb()
     margin-bottom : 25px ; 
     padding: 20px;
     font-size: 2em;
+}
+.errors
+{
+    color : red ; 
+    font-size : 2em ; 
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+}
+.valide
+{
+    color :green ; 
+    font-size : 2em ; 
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
 }
 </style>
