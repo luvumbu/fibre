@@ -12,10 +12,6 @@ require 'app.section.html';
 ?>
 <link rel="stylesheet" href="src/app/all/section/app.section.css">
 <script src="src/app/all/section/app.section.js"></script>   
-
-
-
-
 <?php
  
 include('../app/all/function/app.bdd.php') ; 
@@ -69,9 +65,7 @@ if ($result->num_rows > 0) {
         
  $total = $AERIEN+$SOUTFACADE+$SAV + $PLP +$APPART+$PVRHN+$HOML1 ; 
 echo  $total ; 
-      ?>
-
-<div style="margin-bottom: 200px"></div>
+      ?> 
 <?php 
 
 
@@ -82,9 +76,4 @@ echo  $total ;
 $conn->close();
 ?>
 
-<style>
-    .margin-top
-    {
-        margin-top:200px ; 
-    }
-</style>
+ 

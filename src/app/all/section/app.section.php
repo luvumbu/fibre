@@ -21,6 +21,7 @@ if(isset($_SESSION["info_http"]))
 
     if( $_SESSION["info_http"]=="on")
     {
+        
  
 echo '<meta http-equiv="refresh" content="0;URL=https://bokonzi.fr/src/login/index.php">' ; 
  
@@ -28,10 +29,7 @@ echo '<meta http-equiv="refresh" content="0;URL=https://bokonzi.fr/src/login/ind
      echo '<div id="info_http">'.$_SESSION["info_http"].'</div>';
 
     }
-    else 
-    {
-        echo "NADA" ; 
-    }
+
 
     ?>
     <div id="info_http">
