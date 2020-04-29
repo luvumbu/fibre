@@ -5,10 +5,6 @@ include("app.bdd.php");
 $infos = $_POST["infos"] ;
 $mail = $_POST["mail"] ; 
 $my_password = $_POST["password"] ; 
-// $servername ="localhost";
-// $username="u481158665_bokonzi"; 
-// $password="v3p9r3e@59A"; 
-// $dbname="u481158665_bokonzi"; 
 if($infos=="connexion")
 {
 echo "Connexion" ;
@@ -18,7 +14,6 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
 $sql = 'SELECT * FROM `users` WHERE `users_email` ="'.$mail.'" AND `users_password` ="'.$my_password.'"';
 $result = $conn->query($sql);
 
@@ -26,7 +21,10 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         echo "id: " . $row["users_name"];
-        $_SESSION["info_http"] = "Connection reussi" ; 
+        $_SESSION["info_http"] = "on" ; 
+   
+
+
     }
 } else {
     echo "0 results";
@@ -50,8 +48,16 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "utilisateur connu dans la base de donne" ;
-        $_SESSION["info_http"] = "Utilisateur connu dans la base de donne" ;
+         //$_SESSION["info_http"] = $row["users_verif"] ;
+        $users_verif = $row["users_verif"];
+        if($users_verif=="-1")
+        {
+            $_SESSION["info_http"]= "Votre adresse mail n'est pas activé";
+        }
+        else 
+        {
+            $_SESSION["info_http"]= "Votre compte existe connecté vous pour vous connecter " ;
+        }
         $_SESSION["info_status"] = "0" ;
         $_SESSION["info_mail"] = $mail ;
         /// debut du code 
@@ -87,8 +93,10 @@ $connx->close();
          // Sujet
          $subject = 'Activation compte Bokonzi';
      
+
+          
          // message
-         $lien = $monUrl."/src/app/all/function/app.activate.php/=".$mail;
+         $lien = $monUrl."/src/app/all/function/app.activate.php/=".sha1($mail)."=".$mail;
          $message = '<a href="'.$lien.'">Cliquez ici pour activer</a>';
     
          // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini

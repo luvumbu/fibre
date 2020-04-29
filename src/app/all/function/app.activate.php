@@ -2,6 +2,8 @@
 session_start() ;
 header("Access-Control-Allow-Origin: *"); 
 include("app.bdd.php");
+
+
 $infos = $_POST["infos"] ;
 $monUrl = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $monUrls = $_SERVER['HTTP_HOST']."/src/app/all/function/app.newpassword.php" ;
@@ -179,3 +181,65 @@ var myurl =  document.getElementById("monulr").innerText ;
       }
     }
 </script>
+<?php 
+
+
+$somme = 0 ; 
+$moi = "";
+for($i = strlen($monUrl)-1 ; $i>0 ; $i--)
+{
+ if($monUrl[$i]=="=")
+ {
+        //$i = 0; 
+        $somme ++ ;
+ }
+ else if($somme==1) 
+ {
+    $moi =$moi.$monUrl[$i] ; 
+ }
+ else if($somme==2) 
+ {
+    $i = 0; 
+ }
+
+
+}
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$moi_bis = "" ; 
+
+
+for($i = strlen($moi)-1 ; $i>-1 ; $i--)
+{    
+    $moi_bis = $moi_bis.$moi[$i];
+}
+
+ 
+ if($moi_bis!=sha1($mail2))
+ {
+    header('Location: http://www.bokonzi.fr/');
+    exit;
+ }
+ 
+ 
+?>

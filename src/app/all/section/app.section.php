@@ -18,8 +18,26 @@ require 'app.section.html';
 <?php 
 if(isset($_SESSION["info_http"]))
 {
-    echo '<div id="info_http">'.$_SESSION["info_http"].'</div>' ;
-    echo "<br/> CLiquez ici pour d'esactiver". $_SESSION["info_mail"] ;  
+
+    if( $_SESSION["info_http"]=="on")
+    {
+ 
+echo '<meta http-equiv="refresh" content="0;URL=https://bokonzi.fr/src/login/index.php">' ; 
+ 
+        echo "sa marche" ; 
+     echo '<div id="info_http">'.$_SESSION["info_http"].'</div>';
+
+    }
+    else 
+    {
+        echo "NADA" ; 
+    }
+
+    ?>
+    <div id="info_http">
+    <?php echo $_SESSION["info_http"] ?>
+    </div>
+<?
 
     ?>
 
@@ -32,3 +50,15 @@ if(isset($_SESSION["info_http"]))
 <?php 
 }
 ?>
+
+<script>
+
+
+  var info=  document.getElementById("info_http").innerHTML ; 
+if(info=="on")
+{  
+      //  window.location.href = "https://bokonzi.fr/src/login/index.php";
+}
+</script>
+
+

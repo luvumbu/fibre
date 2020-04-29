@@ -10,11 +10,26 @@
 <?php 
    session_start() ; 
    $name_bdd = "app.bdd.php"; // création de la variable à verifier pour le bon fonctionnement de la page 
-   // variable  1 
+   // variable  1
+
+    if( $_SESSION["info_http"]=="on")
+    {
+ 
 
 
+echo '<meta http-equiv="refresh" content="0;URL=https://bokonzi.fr/src/login/index.php">' ; 
+echo "sa marche" ; 
+echo '<div id="info_http">'.$_SESSION["info_http"].'</div>';
 ?>
-
+<style>
+  body 
+   {
+      opacity: 0;
+   }
+</style>
+<?php 
+ }
+?>
 <div id="name_bdd" class="<?php  echo $name_bdd; ?>">
 <link rel="stylesheet" href="src/app/all/function/css/police.css">
 <link rel="stylesheet" href="src/app/all/function/css/margin.css">
@@ -72,5 +87,12 @@
                 //    ★   Ajoute le fichier app.php ♨=#ix0002 ☆    
             ?>
     <script src="src/app/all/function/app.js"></script>  
+
+    <?php 
+    if(isset($_SESSION["users_name"]))
+    {
+       echo "REDIRECTION" ; 
+    }
+    ?>
         </body>
     </html>
