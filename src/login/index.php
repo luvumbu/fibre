@@ -10,6 +10,23 @@
 <?php 
    session_start() ; 
 
+
+
+   if(isset($_SESSION["info_http"]))
+   {
+      if( $_SESSION["info_http"]=="")
+      {
+            echo '<meta http-equiv="Refresh" content="0; url=https://bokonzi.fr" />';
+            echo '<style> body {opacity :0 }';
+      }
+   }
+   else 
+   {
+      echo '<meta http-equiv="Refresh" content="0; url=https://bokonzi.fr" />';
+      echo '<style> body {opacity :0 }';
+   }
+
+
    $name_bdd = "app.bdd.php"; // création de la variable à verifier pour le bon fonctionnement de la page 
    // variable  1 
   
@@ -39,7 +56,7 @@
         </head>
       <title>Document</title>
          <body id="body">          
-            <?php                        
+            <?php           
                        
                         require "src/app/all/app.php";  // demande ajouter les elements dans l'emplacement du fichier $name_bdd
  
