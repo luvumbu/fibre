@@ -13,50 +13,24 @@ require 'app.section.html';
 <div id="cookie-identification"></div>
 <link rel="stylesheet" href="src/app/all/section/app.section.css">
 <script src="src/app/all/section/app.section.js"></script>  
-
-
 <?php 
 if(isset($_SESSION["info_http"]))
 {
-
     if( $_SESSION["info_http"]=="on")
     {
-        
- 
-echo '<meta http-equiv="refresh" content="0;URL=https://bokonzi.fr/src/login/index.php">' ; 
- 
+        $lien = $_SERVER['HTTP_HOST'] ;
+        $lien = $_SERVER['HTTP_HOST'] ;
+        echo '<meta http-equiv="refresh" content="0;URL=https://'.$lien.'fr/src/login/index.php">' ; 
         echo "sa marche" ; 
-     echo '<div id="info_http">'.$_SESSION["info_http"].'</div>';
-
-    }
-
-
-    ?>
-    <div id="info_http">
-    <?php echo $_SESSION["info_http"] ?>
-    </div>
-<?
-
-    ?>
-
-<script>
-//   document.getElementById("info_http").style.display="block";
-// setTimeout(function(){ 
-//    document.getElementById("info_http").style.display="none";
-//     }, 3000);
-</script>
-<?php 
+        echo '<div id="info_http">'.$_SESSION["info_http"].'</div>';
+    }    
+        echo '<div id="info_http">' ;
+        echo $_SESSION["info_http"]  ; 
+        echo '</div>' ;  
 }
 ?>
-
 <script>
-
-
   var info=  document.getElementById("info_http").innerHTML ; 
-if(info=="on")
-{  
-      //  window.location.href = "https://bokonzi.fr/src/login/index.php";
-}
 </script>
 
 

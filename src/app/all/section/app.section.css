@@ -7,3 +7,75 @@
     //  ❥ = le fichier ne pas au même emplacement que l'appelant /!\
     //
     𝕨𝕨𝕨.𝔹𝕠𝕜𝕠𝕟𝕫𝕚.𝕔𝕠𝕞  𝖞𝖉𝖊𝖓𝖌𝖆 𝕿𝖚𝖛𝖚𝖒𝖇𝖚   ★☆♨♫✈❤ /*
+*/
+        .hidden 
+    {
+        display: none;
+    }
+    .section_child_class1 
+    {
+        width : 60%; 
+        margin :auto ; 
+        margin-top : 25px; 
+      
+        display: block;
+        
+    }
+    .none 
+    {
+        display: none ;
+    }
+    .loading 
+    {
+    
+        width :100%; 
+        margin : auto ; 
+        text-align: center;
+    }
+    .section_child_class3 ,.section_child_class4
+    {
+            width:100%;
+            margin-bottom : 25px;
+            padding:15px ; 
+            border-radius : 15px; 
+            
+             border : 1px solid rgba(0, 0, 0, 0.1) ; 
+    }
+    .section_child_class5,.section_child_class5_hidden
+    {
+            width : 40% ; 
+            border-radius : 15px; 
+            border : 1px solid rgba(0, 0, 0, 0.1) ; 
+            padding:15px ;
+            text-align:center ; 
+            background-color: #779cc7;
+            color : white ;
+            transition : 1s all ;  
+    }
+    .section_child_class5_hidden
+    {
+        opacity: 0.2;
+    }
+    .section_child_class5
+    {
+        opacity: 1;
+    }
+    .section_child_class5:hover 
+    {
+        cursor : pointer ; 
+        transition : 1s all ; 
+        opacity: 0.5;
+        text-shadow: 1px 1px 1px black;
+    }
+
+
+
+    @media screen and (max-width: 1024px)
+{
+    .section_child_class1 
+    {
+        width : 90%; 
+        margin :auto ; 
+        margin-top : 25px; 
+    }
+}

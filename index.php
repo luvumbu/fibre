@@ -10,21 +10,19 @@
 <?php 
    session_start() ; 
    $name_bdd = "app.bdd.php"; // création de la variable à verifier pour le bon fonctionnement de la page 
-   // variable  1
-
-    if( $_SESSION["info_http"]=="on")
+   // variable  1 
+    if( $_SESSION["info_http"]=="on") // apres la connexion succes redirection de la page
     {
- 
-
-
-echo '<meta http-equiv="refresh" content="0;URL=https://bokonzi.fr/src/login/index.php">' ; 
-echo "sa marche" ; 
-echo '<div id="info_http">'.$_SESSION["info_http"].'</div>';
+      $lien = $_SERVER['HTTP_HOST'] ;
+      echo '<meta http-equiv="refresh" content="0;URL=https://'.$lien.'fr/src/login/index.php">' ; 
+      echo '<div id="info_http">'.$_SESSION["info_http"].'</div>';
 ?>
+<link rel="shortcut icon" type="image/png" href="favicon.png">
 <style>
   body 
    {
       opacity: 0;
+      /* pour eviter d'afficher quelques instant la page avant le renvoi */
    }
 </style>
 <?php 
@@ -69,8 +67,7 @@ echo '<div id="info_http">'.$_SESSION["info_http"].'</div>';
                        {                                              
                           header('Location: src/login/index.php');                  
                           exit();                      
-                       } 
-                      
+                       }                       
                        else 
                        {
                         require "src/app/all/app.php"; // demande d'aouter les valeur ce cet emplacement
@@ -95,4 +92,4 @@ echo '<div id="info_http">'.$_SESSION["info_http"].'</div>';
     }
     ?>
         </body>
-    </html>
+</html>
