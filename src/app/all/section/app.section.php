@@ -20,7 +20,7 @@ if(isset($_SESSION["info_http"]))
     {
         $lien = $_SERVER['HTTP_HOST'] ;
         $lien = $_SERVER['HTTP_HOST'] ;
-        echo '<meta http-equiv="refresh" content="0;URL=https://'.$lien.'fr/src/login/index.php">' ; 
+        echo '<meta http-equiv="refresh" content="0;URL=https://'.$lien.'/src/login/index.php">' ; 
         echo "sa marche" ; 
         echo '<div id="info_http">'.$_SESSION["info_http"].'</div>';
     }    

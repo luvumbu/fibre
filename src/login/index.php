@@ -8,15 +8,13 @@
     //
 𝕨𝕨𝕨.𝔹𝕠𝕜𝕠𝕟𝕫𝕚.𝕔𝕠𝕞  𝖞𝖉𝖊𝖓𝖌𝖆 𝕿𝖚𝖛𝖚𝖒𝖇𝖚   ★☆♨♫✈❤   -->
 <?php 
-   session_start() ; 
-
-
-
+   session_start() ;
    if(isset($_SESSION["info_http"]))
    {
       if( $_SESSION["info_http"]=="")
       {
-            echo '<meta http-equiv="Refresh" content="0; url=https://bokonzi.fr" />';
+            $lien = $_SERVER['HTTP_HOST'] ; // redirection pour la déconnexion 
+            echo '<meta http-equiv="Refresh" content="0; url='.$lien.'" />';
             echo '<style> body {opacity :0 }';
       }
    }
@@ -25,11 +23,8 @@
       echo '<meta http-equiv="Refresh" content="0; url=https://bokonzi.fr" />';
       echo '<style> body {opacity :0 }';
    }
-
-
    $name_bdd = "app.bdd.php"; // création de la variable à verifier pour le bon fonctionnement de la page 
-   // variable  1 
-  
+   // variable  1  
 ?>
 <div id="name_bdd" class="<?php  echo $name_bdd; ?>">
 <link rel="stylesheet" href="src/app/all/function/css/police.css">
@@ -45,7 +40,6 @@
    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
    crossorigin="anonymous">
 </script>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
 <!DOCTYPE html>
    <html lang="fr">
@@ -56,11 +50,9 @@
         </head>
       <title>Document</title>
          <body id="body">          
-            <?php           
-                       
-                        require "src/app/all/app.php";  // demande ajouter les elements dans l'emplacement du fichier $name_bdd
- 
-            ?>
+            <?php                    
+               require "src/app/all/app.php";  // demande ajouter les elements dans l'emplacement du fichier $name_bdd
+             ?>
     <script src="src/app/all/function/app.js"></script>  
         </body>
     </html>

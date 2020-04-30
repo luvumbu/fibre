@@ -12,28 +12,22 @@ require 'app.section.html';
 ?>
 <link rel="stylesheet" href="src/app/all/section/app.section.css">
 <script src="src/app/all/section/app.section.js"></script>   
-<?php
- 
+<?php 
 include('../app/all/function/app.bdd.php') ; 
-
- 
+// ajout des variable dans le fichier BDD parent
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
 $sql = 'SELECT * FROM `fibre` WHERE 1';
+// code a revoir  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $result = $conn->query($sql);
-
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "Nd: " . $row["fibre_nd"];
-
-
-        
+        echo "Nd: " . $row["fibre_nd"];        
         echo "<br/>";    
         echo "AERIEN: " . $row["AERIEN"];
         $AERIEN = $row["AERIEN"]*1*2.35; 
@@ -42,34 +36,23 @@ if ($result->num_rows > 0) {
         $SOUTFACADE =$row["SOUTFACADE"]*1*1.5; 
         echo "<br/>";
         echo "SAV: " . $row["SAV"];
-        $SAV = $row["SAV"]*1*0.45 ; 
- 
-
+        $SAV = $row["SAV"]*1*0.45 ;
         echo "<br/>";
         echo "PLP: " . $row["PLP"];
-        $PLP = $row["PLP"]*1*0.35 ; 
-
+        $PLP = $row["PLP"]*1*0.35;
         echo "<br/>";
         echo "APPART: " . $row["APPART"];
         $APPART = $row["APPART"]*1*0.7;
-
         echo "<br/>";
         echo "PVRHN: " . $row["PVRHN"];
-        $row["PVRHN"] = $row["PVRHN"]*1*0.7 ; 
-
+        $row["PVRHN"] = $row["PVRHN"]*1*0.7;
         echo "<br/>";
         echo "HOML1: " . $row["HOML1"];
         $HOML1 = $row["HOML1"]*1*0.3;
-        echo "<br/>";
-
-        
- $total = $AERIEN+$SOUTFACADE+$SAV + $PLP +$APPART+$PVRHN+$HOML1 ; 
-echo  $total ; 
-      ?> 
-<?php 
-
-
-    }
+        echo "<br/>";        
+        $total = $AERIEN+$SOUTFACADE+$SAV + $PLP +$APPART+$PVRHN+$HOML1 ; 
+        echo  $total ; 
+   }
 } else {
     echo "0 results";
 }
