@@ -5,10 +5,16 @@ include("app.bdd.php");
 $infos = $_POST["infos"] ;
 $mail = $_POST["mail"] ; 
 $my_password = $_POST["password"] ; 
-// $servername ="localhost";
-// $username="u481158665_bokonzi"; 
-// $password="v3p9r3e@59A"; 
-// $dbname="u481158665_bokonzi"; 
+
+
+
+$servername=    $_SESSION["servername"]; 
+$username=      $_SESSION["username"] ; 
+$password=      $_SESSION["password"]; 
+$dbname =       $_SESSION["dbname"]; 
+
+
+
 if($infos=="connexion")
 {
 echo "Connexion" ;

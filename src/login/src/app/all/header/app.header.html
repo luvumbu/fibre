@@ -13,8 +13,35 @@
 <i class="fa fa-instagram"></i>
 <i class="fa fa-linkedin"></i>
 𝕨𝕨𝕨.𝔹𝕠𝕜𝕠𝕟𝕫𝕚.𝕔𝕠𝕞  𝖞𝖉𝖊𝖓𝖌𝖆 𝕿𝖚𝖛𝖚𝖒𝖇𝖚   ★☆♨♫✈❤  -->
-<div onclick="deconnexion()">
-    Déconnexion
+<style>
+    .flex 
+    {
+        display: flex;
+        width: 100%;
+        background-color: #e2f4fa;
+        justify-content: space-around;
+        color :  #839ea8 ;
+    }
+    .padding-10px ,.aujourdhui
+    {
+        padding: 10px;
+    }
+</style>
+<div class="flex">
+    <div  onclick="action(this)" class="inter">
+Ajouter une intervetion
+    </div>
+    <div  onclick="action(this)" class="aujourdhui">
+        Aujourd'hui
+            </div>
+    <div  onclick="action(this)" class="mesinter">
+Mes interventions       
+    </div>
+    <div class="padding-10px black">
+        <div onclick="deconnexion()" class="deco">
+            Déconnexion
+        </div>
+    </div>
 </div>
 <script>
     function deconnexion() 
@@ -22,33 +49,100 @@
         window.location.href = "https://bokonzi.fr/src/login/src/app/all/function/app.deconnexion.php";
     }
 </script>
-<div id="erro1" class="errors"></div>
-<div id="erro2" class="errors"></div>
-    <header id="header0"></header>
-    <div class="send">
-    <input type="number" placeholder="ND : " class="valider" maxlength="10" id="nd">   
-    <div id="liste" style="text-align: center;">
-    </div> 
-    <select name="pets" id="intervention" onchange="myFunction(this)" class="valider">
-        <option value="" id="----">-- --</option>
-        <option value="" id="header_child_id1"></option>
-        <option value="" id="header_child_id2"></option>
-        <option value="" id="header_child_id3"></option>
-        <option value="" id="header_child_id4"></option>
-        <option value="" id="header_child_id5"></option>
-        <option value="" id="header_child_id6"></option>
-        <option value="" id="header_child_id7"></option>
-    </select>
 
-    <div class="oon" onclick="send_bb()" id="ons">
-        Valider
+<div   id="add-nd" class="add-nd-hidden">
+    <div id="erro1" class="errors"></div>
+    <div id="erro2" class="errors"></div>
+        <header id="header0"></header>
+        <div class="send">
+        <input type="number" placeholder="ND : " class="valider" maxlength="10" id="nd">   
+        <div id="liste">
+        </div> 
+        <select name="pets" id="intervention" onchange="myFunction(this)" class="valider" >
+            <option value="" id="----">-- --</option>
+            <option value="" id="header_child_id1"></option>
+            <option value="" id="header_child_id2"></option>
+            <option value="" id="header_child_id3"></option>
+            <option value="" id="header_child_id4"></option>
+            <option value="" id="header_child_id5"></option>
+            <option value="" id="header_child_id6"></option>
+            <option value="" id="header_child_id7"></option>
+        </select>
+        <div class="oon ons" onclick="send_bb()" id="ons" style="cursor:pointer">
+            Valider
+        </div>
     </div>
-  </div>
-
-<!-- <i class="fa fa-plus-circle"></i> -->
-
+</div>
+<style>
  
+    .black 
+    {
+        background-color: #1f3740;
+        color:white ;       
+    }
+    .black:hover 
+    {
+        cursor:pointer;       
+    }
+    .inter 
+    {
+        padding: 10px;
+    }
+    .mesinter 
+    {
+        padding: 10px;
+    }
+    .ons 
+    {
+        background-color: #4eabca;
+        margin-top:15px; 
+        width: 200px;
+        color : white ; 
+        text-align: center;
+       margin: auto;
+    }
+    .valider 
+    {
+        padding: 15px; 
+        margin-bottom: 15px; 
+    }
+    .add-nd 
+    {
 
+    }
+    .add-nd-hidden
+    {
+        display: none;
+    }
+    .add-nd-visible 
+    {
+        display: block;
+    }
+    #add-nd 
+    {
+        width : 80%; 
+        margin : auto;
+     
+        text-align: center;
+    }
+ 
+</style>
+<script>
+
+    function action(this_)
+    {
+        if(this_.className=="inter")
+        {
+            document.getElementById("add-nd").className="";
+        }
+        else 
+        {
+                //mesinter
+                document.getElementById("add-nd").className="add-nd-hidden";
+        }        
+
+    }
+</script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

@@ -22,6 +22,7 @@ $.post( "src/app/all/function/check.bdd.php", form )
     console.log(data);
 });
   setTimeout(function(){      
+ 
     document.location.reload(true);      
        }, 700);
 }

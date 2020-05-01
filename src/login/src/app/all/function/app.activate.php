@@ -1,7 +1,16 @@
 <?php
 session_start() ;
 header("Access-Control-Allow-Origin: *"); 
-include("app.bdd.php");
+
+$servername=    $_SESSION["servername"]; 
+$username=      $_SESSION["username"] ; 
+$password=      $_SESSION["password"]; 
+$dbname =       $_SESSION["dbname"]; 
+
+
+
+
+
 $infos = $_POST["infos"] ;
 $monUrl = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $monUrls = $_SERVER['HTTP_HOST']."/src/app/all/function/app.newpassword.php" ;
@@ -14,8 +23,6 @@ $one_monUrls =$_SERVER['HTTP_HOST'] ;
 <div id="one_monUrls" style="opacity: 0">
 <?php echo  $one_monUrls ?>
 </div>
-
-
 <?php 
 echo "<br/>" ; 
 $mail1= "";
@@ -74,13 +81,10 @@ echo $mail2 ;
     padding:  30px ;
     text-shadow: 1px 1px black ; 
     box-shadow: 1px 1px black ; 
-
 }
 body 
-{
-    margin : 0 ; 
+{    margin : 0 ; 
   
-
 }
 .inputs 
 {

@@ -8,6 +8,7 @@
     //
     𝕨𝕨𝕨.𝔹𝕠𝕜𝕠𝕟𝕫𝕚.𝕔𝕠𝕞  𝖞𝖉𝖊𝖓𝖌𝖆 𝕿𝖚𝖛𝖚𝖒𝖇𝖚   ★☆♨♫✈❤  -->
 <?php
+session_start() ; 
 require 'app.section.html';
 ?>
 <link rel="stylesheet" href="src/app/all/section/app.section.css">

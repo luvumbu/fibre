@@ -20,11 +20,14 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["users_name"];
-        $_SESSION["info_http"] = "on" ; 
-   
-
-
+         
+        $_SESSION["info_http"] = "on" ;         
+        $_SESSION["servername"] = $servername ; 
+        $_SESSION["username"] = $username ; 
+        $_SESSION["password"] = $password ; 
+        $_SESSION["dbname"] = $dbname ; 
+        $_SESSION["users_email"] =  $row["users_email"];
+        $_SESSION["users_password"] =  $row["users_password"];
     }
 } else {
     echo "0 results";
@@ -41,7 +44,6 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
 $sql ='SELECT * FROM `users` WHERE `users_email` ="'.$mail.'"';
 $result = $conn->query($sql);
 

@@ -147,8 +147,7 @@ var mavaleur = this_.value[myval.length-1] ;
     
     monTableau[mavaleur][0] =true ;
   
-   
- 
+
 
      
 }
@@ -163,6 +162,10 @@ function removeId(this_)
 
 function send_bb() 
 {
+
+   
+    
+   
    var total = 0 ; 
    var erro1 = 0 ; 
    var erro2 = 0 ; 
@@ -291,8 +294,27 @@ function send_bb()
         document.getElementById("erro1").className="valide";
         document.getElementById("erro1").innerHTML="Valeur ok" ; 
         
+        // var d = new Date();
+        // document.getElementById("erro2").innerHTML = d;
+        
+
+
         var d = new Date();
-       document.getElementById("erro2").innerHTML = d;
+        var anne = d.getFullYear(); 
+        var mois = d.getMonth() + 1 ; 
+        var jour = d.getDate(); 
+        var heure = d.getHours(); 
+        var minutes= d.getMinutes();
+        var secondes = d.getSeconds();
+        var fibre_adds = anne+"-"+mois+"-"+jour+" "+heure+":"+minutes+":"+secondes; 
+         alert(fibre_adds) ; 
+
+        setInterval(function(){
+            
+            location.reload() ; 
+        
+        
+        }, 4000);
 
 
 
@@ -320,10 +342,16 @@ identite.append("login4", monTableau[4][0]);
 identite.append("login5", monTableau[5][0]);
 identite.append("login6", monTableau[6][0]);
 identite.append("login7", monTableau[7][0]);
+identite.append("fibre_adds", fibre_adds);
 
-var ndfinal =document.getElementById("nd").value;
+
  
 
+
+ //timer
+
+
+var ndfinal =document.getElementById("nd").value;
 identite.append("nd", ndfinal);
  
 
@@ -336,6 +364,14 @@ req.open("POST", "src/app/all/function/app.function.php");
 // Envoi de la requête en y incluant l'objet
 req.send(identite);
 console.log(req);
+
+
+
+ 
+
+
+
+
             
    
     }
