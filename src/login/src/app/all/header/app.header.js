@@ -101,9 +101,6 @@ document.getElementById(header_child_id7).innerHTML=header_child_text7 ;
 
 
 
-
-
-
 document.getElementById(header_child_id1).value=header_child_id1 ; 
 document.getElementById(header_child_id2).value=header_child_id2 ; 
 document.getElementById(header_child_id3).value=header_child_id3 ; 
@@ -121,43 +118,34 @@ document.getElementById(header_child_id5).className=header_child_text5 ;
 document.getElementById(header_child_id6).className=header_child_text6 ; 
 document.getElementById(header_child_id7).className=header_child_text7 ; 
 
+var nombreadds = 0 ; 
+// variable pour verifier si on à deja fais une selection 
 
-
-
-
-function myFunction(this_) {
-
-
-var myval = this_.value;
-var mavaleur = this_.value[myval.length-1] ; 
-
-
+function myFunction(this_) 
+{
+    if(nombreadds==0)
+  {
+    var myval = this_.value;
+    var mavaleur = this_.value[myval.length-1] ; 
     document.getElementById(this_.value).style.display="none"; 
     header_1_final = new IdentificationHtml("div",this_.value+'_'+mavaleur,"liste");   
-    var elo  =document.getElementById(this_.value).className ;
-
-
-
- 
+    var elo  =document.getElementById(this_.value).className; 
     var lol = "<div id='"+mavaleur+"' class=''>"+elo+"  <i class='fa fa-remove'id='"+mavaleur+"' onclick='removeId(this)' class='"+elo+"'></i></div> "
-    header_1_final.set_text(lol) ;
+    header_1_final.set_text(lol) ;    
+    monTableau[mavaleur][0] =true ;  
+    nombreadds ++ ;  
+  }
 
-
-
-    
-    monTableau[mavaleur][0] =true ;
   
-
-
-     
 }
  
 function removeId(this_)
 {
+
     monTableau[this_.id][0] =false ;
-    document.getElementById(this_.id).style.display="none" ; 
- 
+    document.getElementById(this_.id).style.display="none";  
     document.getElementById("header_child_id"+this_.id).style.display="block"; 
+    nombreadds -- ;  
 }
 
 function send_bb() 
@@ -191,16 +179,7 @@ function send_bb()
     }
     if(monTableau[2][0]==true)
     {
-        //alert(header_child_text2 );
-
-            // header_child_text1="AERIEN";
-    // header_child_text2="SOUT / FACADE";
-    // header_child_text3="SAV";
-    // header_child_text4="PLP";
-    // header_child_text5="APPART";
-    // header_child_text6="PVRHN";
-    // header_child_text7="HOML1";
-    matab.push("SOUT / FACADE") ; 
+        matab.push("SOUT / FACADE") ; 
         total ++ ; 
     }
     if(monTableau[3][0]==true)
@@ -307,14 +286,14 @@ function send_bb()
         var minutes= d.getMinutes();
         var secondes = d.getSeconds();
         var fibre_adds = anne+"-"+mois+"-"+jour+" "+heure+":"+minutes+":"+secondes; 
-         alert(fibre_adds) ; 
+    
 
         setInterval(function(){
             
             location.reload() ; 
         
         
-        }, 4000);
+        }, 1000);
 
 
 

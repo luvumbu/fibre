@@ -15,7 +15,7 @@
     {
         var input1=    document.getElementById("section_child_id3").value ; 
         var input2=    document.getElementById("section_child_id4").value ;
-      var valeursends = document.getElementById('section_child_id4').className ; 
+        var valeursends = document.getElementById('section_child_id4').className ; 
        
       if(valeursends!="none_value")
       {

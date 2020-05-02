@@ -37,11 +37,6 @@
 <link rel="stylesheet" href="src/app/all/function/css/general.css">
 <!-- prend la valeur de la variable du div pour le re utiliser dans les fichier check.bdd.php" -->
 </div>
-<script
-   src="https://code.jquery.com/jquery-3.4.1.min.js"
-   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-   crossorigin="anonymous">
-</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
 <!DOCTYPE html>
    <html lang="fr">
@@ -70,7 +65,9 @@
                        }                       
                        else 
                        {
-                        require "src/app/all/app.php"; // demande d'aouter les valeur ce cet emplacement
+                        require "src/app/all/app.php"; 
+                        // demande d'aouter les valeur ce cet emplacement
+                        // Demade des elemetns si l'utilisateur n'est pas connectée 
                        }                          
                      }
                        else 
@@ -84,12 +81,5 @@
                 //    ★   Ajoute le fichier app.php ♨=#ix0002 ☆    
             ?>
     <script src="src/app/all/function/app.js"></script>  
-
-    <?php 
-    if(isset($_SESSION["users_name"]))
-    {
-       echo "REDIRECTION" ; 
-    }
-    ?>
-        </body>
+    </body>
 </html>

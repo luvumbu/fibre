@@ -9,12 +9,12 @@
 𝕨𝕨𝕨.𝔹𝕠𝕜𝕠𝕟𝕫𝕚.𝕔𝕠𝕞  𝖞𝖉𝖊𝖓𝖌𝖆 𝕿𝖚𝖛𝖚𝖒𝖇𝖚   ★☆♨♫✈❤   -->
 <?php 
      session_start() ;
-     $servername=    $_SESSION["servername"]; 
-     $username=      $_SESSION["username"] ; 
-     $password=      $_SESSION["password"]; 
-     $dbname =       $_SESSION["dbname"];
-     $users_email = $_SESSION["users_email"];
-     $users_password =$_SESSION["users_password"];
+     $servername=      $_SESSION["servername"]; 
+     $username=        $_SESSION["username"] ; 
+     $password=        $_SESSION["password"]; 
+     $dbname =         $_SESSION["dbname"];
+     $users_email =    $_SESSION["users_email"];
+     $users_password = $_SESSION["users_password"];
 
    if(isset($_SESSION["info_http"]))
    {
@@ -32,15 +32,13 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
       $_SESSION["fibre_id_user"] = $row["users_id"] ;
       // récuperation de L'id pour exploitation dans le fichier section.php 
-      
-    }
+     }
 } 
 else {
    // SI l'utilisateur ou mot de passe n'est pas correct faire une redirection puis deconnexion de la personne
    echo '<meta http-equiv="Refresh" content="0; url=https://bokonzi.fr/src/login/src/app/all/function/app.deconnexion.php" />';
 }
 $conn->close();
-
       if( $_SESSION["info_http"]=="")
       {
             $lien = $_SERVER['HTTP_HOST'] ; // redirection pour la déconnexion 
@@ -77,7 +75,7 @@ $conn->close();
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">                      
-        </head>
+      </head>
       <title>Document</title>
          <body id="body">          
             <?php                    

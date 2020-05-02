@@ -67,16 +67,6 @@ else
 {
     $HOML1 = 0 ; 
 } 
-// echo $_POST["login3"] ;  
-// echo $_POST["login4"] ;  
-// echo $_POST["login5"] ;  
-// echo $_POST["login6"] ;  
-// echo $_POST["login7"] ;  
-// $sex_epreuve =$_POST["sex_epreuve"] ; 
-// $epreuve_zone= $_POST["epreuve_zone"] ;    
-// $stack = array("orange", "banana");
-// array_push($stack, "apple", "raspberry");
-// print_r($stack);
 $fibre_id_user = $_SESSION["fibre_id_user"] ;
 $nd= $_POST["nd"] ; 
 // Create connection

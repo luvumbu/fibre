@@ -12,17 +12,13 @@
    $name_bdd = "app.bdd.php"; // création de la variable à verifier pour le bon fonctionnement de la page 
    // variable  1   
 //   include("app.bdd.php");
-
- 
 ?>
 </script>   
-
 <!-- <script
    src="https://code.jquery.com/jquery-3.4.1.min.js"
    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
    crossorigin="anonymous">
 </script> -->
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
 <!DOCTYPE html>
    <html lang="fr">
@@ -41,9 +37,7 @@
                     $file_existe= true ;   // si le fichier existe changer la valeur de la variable par true                  
                 }                                      
                   if(  $file_existe ==true)
-                     {
-
-                       
+                     {                       
                         require "src/app/all/function/".$name_bdd;  // demande ajouter les elements dans l'emplacement du fichier $name_bdd
                         require "src/app/all/app.php"; // demande d'aouter les valeur ce cet emplacement
                        // Si la basse de donne existe executer ce code                                 

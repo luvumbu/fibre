@@ -2,8 +2,6 @@
 session_start() ;
 header("Access-Control-Allow-Origin: *"); 
 include("app.bdd.php");
-
-
 $infos = $_POST["infos"] ;
 $monUrl = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $monUrls = $_SERVER['HTTP_HOST']."/src/app/all/function/app.newpassword.php" ;
@@ -12,12 +10,9 @@ $one_monUrls =$_SERVER['HTTP_HOST'] ;
 <div id="monulr" style="opacity: 0">
 <?php echo  $monUrls ?>
 </div>
-
 <div id="one_monUrls" style="opacity: 0">
 <?php echo  $one_monUrls ?>
 </div>
-
-
 <?php 
 echo "<br/>" ; 
 $mail1= "";
@@ -29,8 +24,7 @@ for($i = strlen($monUrl)-1 ; $i>0 ; $i--)
         $i = 0; 
  }
  else 
- {
- 
+ { 
      $mail1 = $mail1.$monUrl[$i]; 
  }
 }
@@ -44,9 +38,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
 $sql = "UPDATE users SET users_verif='1' WHERE users_email='".$mail2."'";
-
 if ($conn->query($sql) === TRUE) {
     echo '<div id="validation">
     Félicitation Votre compte a bien été Validé
@@ -56,14 +48,11 @@ if ($conn->query($sql) === TRUE) {
 }
 $conn->close();
 ?>
-
-
 <div id="monmail" style="opacity: 0">
 <?php 
 echo $mail2 ; 
 ?>
-</div>
- 
+</div> 
 <style>
 #validation 
 {
@@ -75,8 +64,7 @@ echo $mail2 ;
      text-align: center ;
     padding:  30px ;
     text-shadow: 1px 1px black ; 
-    box-shadow: 1px 1px black ; 
-
+    box-shadow: 1px 1px black ;
 }
 body 
 {

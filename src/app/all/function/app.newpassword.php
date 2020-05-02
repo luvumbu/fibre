@@ -1,15 +1,13 @@
-<?php 
-
-session_start();
-echo "session start ok " ; 
-echo  $servername ; 
-header("Access-Control-Allow-Origin: *"); 
-include("app.bdd.php");
-echo $servername ; 
+<?php
+    session_start();
+    echo "session start ok " ; 
+    echo  $servername ; 
+    header("Access-Control-Allow-Origin: *"); 
+    include("app.bdd.php");
+    echo $servername ; 
 //$passwors_s= $_POST["passwors"] ; 
 $monmail =  $_POST["mail"] ; 
 $passwors_1 = $_POST["passwors_1"] ; 
- 
 echo $monmail  ; 
         $conn = new mysqli($servername, $username, $password, $dbname);
         // Check connection
@@ -27,5 +25,4 @@ echo $monmail  ;
             echo "Error updating record: " . $conn->error;
         }
         $conn->close();
-
 ?>

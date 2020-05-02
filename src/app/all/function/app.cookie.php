@@ -76,8 +76,7 @@ if ($resultx->num_rows > 0) {
         echo "Valeur pas verif" ; 
     }
 } else {
-    echo "0 results";
-}
+    echo "0 results";}
 $connx->close();
      /// fin du code
 
@@ -118,8 +117,7 @@ $connx->close();
                             // Check connection
                             if ($conn->connect_error) {
                                 die("Connection failed: " . $conn->connect_error);
-                            }
-    
+                            }    
                             $sql = "INSERT INTO users (users_email)
                             VALUES ('$mail')";
     
