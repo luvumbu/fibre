@@ -13,10 +13,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = 'UPDATE `fibre` SET `today` ="z"';
+$sql = 'UPDATE `fibre` SET `today` ="1"';
 
 if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
+    echo "MISE A JOUR dac dac";
 } else {
     echo "Error updating record: " . $conn->error;
 }
