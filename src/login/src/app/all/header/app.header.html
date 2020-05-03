@@ -161,11 +161,15 @@ Mes interventions
         if(this_.className=="inter")
         {
             document.getElementById("add-nd").className="";
+            document.getElementById("ajd").className="none";
+            document.getElementById("all").className="none";
         }
         else if(this_.className=="aujourdhui") 
         {
-            
- 
+            document.getElementById("add-nd").className="none";
+            document.getElementById("all").className="none";            
+            document.getElementById("ajd").className="ajd";
+
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -177,11 +181,15 @@ Mes interventions
   xhttp.open("GET", "src/app/all/function/app.aujourdhui.nd.php", true);
   xhttp.send();
  
-  alert();
+
                
         }
         else 
         {
+            document.getElementById("add-nd").className="none";
+            document.getElementById("ajd").className="none";
+            document.getElementById("all").className="";
+            
 
         }
 
