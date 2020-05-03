@@ -50,7 +50,6 @@ $PLPx1 = 0;
 $APPARTx1 = 0;
 $PVRHNx1 = 0;
 $HOMLx1 = 0;
-
 $AERIENx2 = 0;
 $SOUTFACADEx2 =0 ;
 $SAVx2 = 0;
@@ -67,15 +66,6 @@ $array_PLPx1 = array("");
 $array_APPARTx1 = array("");
 $array_PVRHNx1 = array("");
 $array_HOMLx1 = array("");
-
-
-
-
-  
-
-
-
-
 
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -241,13 +231,13 @@ if ($result->num_rows > 0) {
             if($row["AERIEN"]==1)
             {
               
-                $AERIENx2 = $AERIENx2 +1;
-                $SOUTFACADEx2 =$SOUTFACADEx2 +1 ;
-                $SAVx2 = $SAVx2 +1;
-                $PLPx2 = $PLPx2 +1;
-                $APPARTx2 = $APPARTx2 +1;
-                $PVRHNx2 = $PVRHNx2 +1;
-                $HOMLx2 = $HOMLx2 +1;
+                // $AERIENx2 = $AERIENx2 +1;
+                // $SOUTFACADEx2 =$SOUTFACADEx2 +1 ;
+                // $SAVx2 = $SAVx2 +1;
+                // $PLPx2 = $PLPx2 +1;
+                // $APPARTx2 = $APPARTx2 +1;
+                // $PVRHNx2 = $PVRHNx2 +1;
+                // $HOMLx2 = $HOMLx2 +1;
             }
             if($row["SOUTFACADE"]==1)
             {
@@ -298,10 +288,10 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 $sommeTotalX = $sommeTotal1x + $sommeTotal2x ;
-echo "Somme total est de ".$sommeTotalX."<br/>" ; 
-echo  "Nombre des points aujourd'hui : " .$sommeTotal2x."<br/>"  ;
+// echo "Somme total est de ".$sommeTotalX."<br/>" ; 
+// echo  "Nombre des points aujourd'hui : " .$sommeTotal2x."<br/>"  ;
 $sommeargent = $sommeTotal2x*25 ; 
-echo  "Nombre des points aujourd'hui  X25: " .$sommeargent  ;
+// echo  "Nombre des points aujourd'hui  X25: " .$sommeargent  ;
 ?>
  
 <style>
@@ -314,72 +304,7 @@ echo  "Nombre des points aujourd'hui  X25: " .$sommeargent  ;
         background-color: yellowgreen;
     }
 </style>
-<table>
-   <caption>Aujourd'hui</caption>
 
-   <thead> <!-- En-tête du tableau -->
-       <tr>
-           <th>INTERS</th>
-           <th>POINTS</th>
-           <th>POINTS x25</th>
-           <th>ND:</th>
-       </tr>
-   </thead>
-
-   <tfoot> <!-- Pied de tableau -->
-       <tr>
-           <th>TOTAL</th>
-           <th></th>
-           <th></th>
-           <th></th>
-       </tr>
-   </tfoot>
-
-   <tbody> <!-- Corps du tableau -->
-       <tr>
-           <td>AERIEN</td>
-           <td>x10</td>
-           <td>0</td>
-           <td>0</td>
-       </tr>
-       <tr>
-           <td>SOUT / FACADE</td>
-           <td>0</td>
-           <td>0</td>
-           <td>0</td>
-       </tr>
-       <tr>
-           <td>SAV</td>
-           <td>0</td>
-           <td>0</td>
-           <td>0</td>
-       </tr>
-       <tr>
-           <td>PLP</td>
-           <td>0</td>
-           <td>0</td>
-           <td>0</td>
-       </tr>
-       <tr>
-           <td>APPART</td>
-           <td>0</td>
-           <td>0</td>
-           <td>0</td>
-       </tr>
-       <tr>
-           <td>PVRHN</td>
-           <td>0</td>
-           <td>0</td>
-           <td>0</td>
-       </tr>
-       <tr>
-           <td>HOML1</td>
-           <td>0</td>
-           <td>0</td>
-           <td>0</td>
-       </tr>
-   </tbody>
-</table>
 
 <style>
     tr 
@@ -425,8 +350,7 @@ $array_AERIENx_total = 0 ;
 }
 else 
 {
-    echo "1- ;".count($array_AERIENx1) ; 
-    echo '<br/>';
+    $array_AERIENx_total = count($array_AERIENx1) ; 
 }
 
 if($array_SOUTFACADEx1[0]=="") 
@@ -435,8 +359,10 @@ if($array_SOUTFACADEx1[0]=="")
 }
 else 
 {
-    echo "2- ;".count($array_SOUTFACADEx1);
-    echo '<br/>';
+ 
+
+    $array_SOUTFACADEx_total = count($array_SOUTFACADEx1);
+ 
 }
 if($array_SAVx1[0]=="") 
 {
@@ -445,38 +371,38 @@ if($array_SAVx1[0]=="")
 }
 else 
 {
-    echo "3- ;".count($array_SAVx1);
-    echo '<br/>';
+    $array_SAVx_total = count($array_SAVx1);
+  
 }
 if($array_PLPx1[0]=="") 
 {
     $array_PLPx_total = 0 ; 
-
 }
 else 
 {
-    echo "4- ;".count($array_PLPx1 );
-    echo '<br/>';
+
+    $array_PLPx_total = count($array_PLPx1 ) ; 
+  
 }
 if($array_APPARTx1[0]=="") 
 {
     $array_APPARTx_total = 0 ; 
- 
+    
 }
 else 
 {
-    echo "5- ;".count($array_APPARTx1);
-    echo '<br/>';
+
+    $array_APPARTx_total = count($array_APPARTx1);
+  
 }
 if($array_PVRHNx1[0]=="") 
 {
-    $array_PVRHNx_total = 0 ; 
-
+    $array_PVRHNx_total = 0 ;
 }
 else 
 {
-    echo "6- ;".count($array_PVRHNx1);
-    echo '<br/>';
+    $array_PVRHNx_total = count($array_PVRHNx1);
+    
 }
 if($array_HOMLx1[0]=="") 
 {
@@ -484,24 +410,103 @@ if($array_HOMLx1[0]=="")
 }
 else 
 {
-    echo "7- ;".count($array_HOMLx1);
-    echo '<br/>';
+    $array_HOMLx_total = count($array_HOMLx1); 
 }
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ?>
+<table>
+   <caption>Aujourd'hui</caption>
+
+   <thead> <!-- En-tête du tableau -->
+       <tr>
+           <th>INTERS</th>
+           <th>POINTS</th>
+           <th>POINTS x25</th>
+           <th>ND:</th>
+       </tr>
+   </thead>
+
+   <tfoot> <!-- Pied de tableau -->
+       <tr>
+           <th>TOTAL</th>
+           <th>
+               <?php echo 
+$array_AERIENx_total+
+$array_SOUTFACADEx_total+
+$array_SAVx_total+
+$array_PLPx_total+
+$array_APPARTx_total+
+$array_PVRHNx_total+
+$array_HOMLx_total ; ?>
+            </th>
+           <th>
+<?php 
+        echo   $array_AERIENx_total*1*2.35*25+
+               $array_SOUTFACADEx_total*1*1.5*25+
+               $array_SAVx_total*1*0.45*25+
+               $array_PLPx_total*1*0.35*25+
+               $array_APPARTx_total*1*0.7*25+
+               $array_PVRHNx_total*1*0.7*25+
+               $array_HOMLx_total*1*0.3*25 ; 
+?>
+
+
+
+           </th>
+           <th></th>
+       </tr>
+   </tfoot>
+
+   <tbody> <!-- Corps du tableau -->
+       <tr>
+           <td>AERIEN</td>
+           <td>
+               <?php echo  $array_AERIENx_total ?>
+            </td>
+           <td><?php echo  $array_AERIENx_total*1*2.5*25 ?></td>
+           <td>0</td>
+       </tr>
+       <tr>
+           <td>SOUT / FACADE</td>
+           <td>
+               <?php echo $array_SOUTFACADEx_total ?>
+            </td>
+           <td> <?php echo $array_SOUTFACADEx_total*1*1.5*25 ?></td>
+           <td>0</td>
+       </tr>
+       <tr>
+           <td>SAV</td>
+           <td>
+               <?php echo $array_SAVx_total ?>
+            </td>
+           <td> <?php echo $array_SAVx_total*1*0.45 ?></td>
+           <td>0</td>
+       </tr>
+       <tr>
+           <td>PLP</td>
+           <td><?php  echo $array_PLPx_total ?></td>
+           <td><?php  echo $array_PLPx_total*1*0.35 ?></td>
+           <td>0</td>
+       </tr>
+       <tr>
+           <td>APPART</td>
+           <td>
+               <?php echo $array_APPARTx_total ?>
+            </td>
+           <td> <?php echo $array_APPARTx_total*1*0.7 ?></td>
+           <td>0</td>
+       </tr>
+       <tr>
+           <td>PVRHN</td>
+           <td><?php echo $array_PVRHNx_total ?></td>
+           <td><?php echo $array_PVRHNx_total*1*0.7 ?></td>
+           <td>0</td>
+       </tr>
+       <tr>
+           <td>HOML1</td>
+           <td><?php echo $array_HOMLx_total ?></td>
+           <td><?php echo $array_HOMLx_total*1*0.3 ?></td>
+           <td>0</td>
+       </tr>
+   </tbody>
+</table>
