@@ -160,10 +160,15 @@ Mes interventions
         {
             document.getElementById("add-nd").className="";
         }
+        else if(this_.className=="aujourdhui") 
+        {
+               alert("Aujourd'hui") ; 
+                document.getElementById("add-nd").className="add-nd-hidden";
+        }
         else 
         {
-                //mesinter
-                document.getElementById("add-nd").className="add-nd-hidden";
+            alert("mes inerventions") ;
+            document.getElementById("add-nd").className="add-nd-hidden";
         }        
 
     }

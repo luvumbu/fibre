@@ -28,38 +28,40 @@ $sql ='SELECT * FROM `fibre` WHERE `fibre_id_user`="'.$fibre_id_user.'"';
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
+
+    echo '<div class="ajd">' ; 
     while($row = $result->fetch_assoc()) {
-        //affiche tous les ND 
-        // echo "Nd: " . $row["fibre_nd"];        
-        // echo "<br/>";    
-        // echo "AERIEN: " . $row["AERIEN"];
-        // $AERIEN = $row["AERIEN"]*1*2.35; 
-        // echo "<br/>";
-        // echo "SOUTFACADE: " . $row["SOUTFACADE"];
-        // $SOUTFACADE =$row["SOUTFACADE"]*1*1.5; 
-        // echo "<br/>";
-        // echo "SAV: " . $row["SAV"];
-        // $SAV = $row["SAV"]*1*0.45 ;
-        // echo "<br/>";
-        // echo "PLP: " . $row["PLP"];
-        // $PLP = $row["PLP"]*1*0.35;
-        // echo "<br/>";
-        // echo "APPART: " . $row["APPART"];
-        // $APPART = $row["APPART"]*1*0.7;
-        // echo "<br/>";
-        // echo "PVRHN: " . $row["PVRHN"];
-        // $row["PVRHN"] = $row["PVRHN"]*1*0.7;
-        // echo "<br/>";
-        // echo "HOML1: " . $row["HOML1"];
-        // $HOML1 = $row["HOML1"]*1*0.3;
-        // echo "<br/>";        
-        // $total = $AERIEN+$SOUTFACADE+$SAV + $PLP +$APPART+$PVRHN+$HOML1 ; 
-        // echo  $total ; 
+        // affiche tous les ND 
+        
+        for($i = 0 ; $i<10; $i++)
+        {
+           // echo "Nd: " . $row["fibre_adds"].'<br/>';
+            $final =$final.$row["fibre_adds"][$i];         
+
+        }      
+      
+        $final2 = $final ;
+        if($row["today"]=="0")
+        {
+            echo $final.'<br/>';
+        } 
+?>
+<div class="<?php echo "a".$final  ?> " id="<?php echo "a"  ?> ">
+</div>
+<?php
+
+  $final ="" ; 
    }
+   echo '</div>' ;
 } else {
 
 }
 $conn->close();
 ?>
-
- 
+<style>
+    .ajd 
+    {
+        background-color: red ; 
+        padding: 40px;
+    }
+</style>
