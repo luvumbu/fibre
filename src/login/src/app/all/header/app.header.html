@@ -72,6 +72,8 @@ Mes interventions
         </div>
     </div>
 </div>
+
+<div id="ndtotal"></div>
 <style>
  
     .black 
@@ -162,14 +164,26 @@ Mes interventions
         }
         else if(this_.className=="aujourdhui") 
         {
-               alert("Aujourd'hui") ; 
-                document.getElementById("add-nd").className="add-nd-hidden";
+            
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("ndtotal").innerHTML =
+      this.responseText;
+    }
+  };
+  alert();
+  xhttp.open("GET", "src/app/all/function/app.aujourdhui.nd.php", true);
+  xhttp.send();
+}
+
+               
         }
         else 
         {
-            alert("mes inerventions") ;
-            document.getElementById("add-nd").className="add-nd-hidden";
-        }        
+
+        }
 
     }
 </script>
