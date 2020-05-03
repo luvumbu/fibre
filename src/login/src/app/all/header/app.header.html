@@ -165,7 +165,7 @@ Mes interventions
         else if(this_.className=="aujourdhui") 
         {
             
-function loadDoc() {
+ 
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -173,11 +173,11 @@ function loadDoc() {
       this.responseText;
     }
   };
-  alert();
+
   xhttp.open("GET", "src/app/all/function/app.aujourdhui.nd.php", true);
   xhttp.send();
-}
-
+ 
+  alert();
                
         }
         else 
